@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'Anton';
+  src: url('./fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./fonts/Pacifico-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #14101d; color: #f4f1fa; font: 15px/1.45 system-ui, -apple-system, sans-serif; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 18px 28px; border-bottom: 1px solid #2b2140;
+  background: linear-gradient(90deg, #2b1055, #7b1e5b 55%, #0e7490);
+}
+.topbar h1 { margin: 0; font-family: Anton, 'Arial Black', sans-serif; font-size: 30px; letter-spacing: 1px; text-transform: uppercase; }
+.topbar h1 span { color: #ffd166; }
+.topbar p { margin: 2px 0 0; color: #e8ddff; }
+.badge {
+  margin: 0; padding: 8px 14px; border-radius: 999px; background: rgba(0,0,0,0.35);
+  border: 1px solid #ffd166; color: #ffd166; font-weight: 700; white-space: nowrap;
+}
+.app { display: flex; gap: 28px; align-items: flex-start; padding: 22px 28px 32px; }
+.controls { width: 330px; flex: none; display: flex; flex-direction: column; gap: 16px; }
+.group {
+  background: #1d1730; border: 1px solid #2b2140; border-radius: 12px; padding: 14px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.group h2 { margin: 0; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #ffd166; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13px; }
+label span { color: #b9aed6; font-weight: 400; }
+input[type=text] {
+  font: inherit; padding: 9px 10px; border: 1px solid #453a63; border-radius: 8px;
+  background: #14101d; color: #fff;
+}
+input[type=range] { width: 100%; accent-color: #ff5da2; }
+button {
+  font: inherit; font-weight: 700; padding: 9px 12px; border: 1px solid #453a63; border-radius: 8px;
+  background: #2b2140; color: #fff; cursor: pointer;
+}
+button:hover { border-color: #ff5da2; }
+button.on { background: #ff5da2; border-color: #ff5da2; color: #14101d; }
+button.export { background: #ffd166; border-color: #ffd166; color: #1c0b2e; font-size: 17px; padding: 12px; }
+button.export:hover { filter: brightness(1.08); }
+.row { display: flex; gap: 8px; }
+.row button { flex: 1; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { padding: 7px 10px; font-size: 13px; }
+.grades button { border-left: 6px solid var(--sw, #888); }
+.tray { display: flex; gap: 8px; flex-wrap: wrap; }
+.thumb {
+  position: relative; width: 72px; height: 72px; border-radius: 8px; overflow: hidden;
+  border: 2px solid #453a63; cursor: pointer;
+}
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb span {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 2px 4px;
+  background: rgba(0,0,0,0.65); font-size: 11px; color: #fff; white-space: nowrap; overflow: hidden;
+}
+.thumb.used { border-color: #22d3ee; box-shadow: 0 0 0 2px #22d3ee; }
+.filebtn {
+  display: block; text-align: center; padding: 10px; border: 1px dashed #ff5da2; border-radius: 8px;
+  color: #ff8fbF; cursor: pointer; font-weight: 700;
+}
+.filebtn input { display: none; }
+.hint { margin: 0; color: #b9aed6; font-size: 13px; }
+#status { margin: 0; color: #5eead4; font-size: 13px; min-height: 18px; }
+.fine { margin: 0; color: #8d84a8; font-size: 12px; }
+.preview { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 0; }
+.previewWrap { position: relative; line-height: 0; }
+#cover { display: block; max-width: 100%; box-shadow: 0 14px 44px rgba(0,0,0,0.55); border-radius: 4px; }
+#selectOverlay { position: absolute; left: 0; top: 0; pointer-events: none; }
+body.shot-cover { background: #000; }
+body.shot-cover .topbar, body.shot-cover .controls, body.shot-cover .preview .hint { display: none; }
+body.shot-cover .app { padding: 0; }
+body.shot-cover .preview { width: 100%; }
+body.shot-cover .previewWrap { width: 100vw; height: 100vh; }
+body.shot-cover #cover { width: 100vw; height: 100vh; box-shadow: none; border-radius: 0; }
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+  .controls { width: 100%; }
+}
